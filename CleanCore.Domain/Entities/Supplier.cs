@@ -51,7 +51,7 @@ public sealed class Supplier : Entity {
         DomainExceptionValidation.When(string.IsNullOrEmpty(cnpj),
                 "Invalid CNPJ.");
 
-        DomainExceptionValidation.When(cnpj.Length < 14,
+        DomainExceptionValidation.When(cnpj.Length != 14,
                 "Invalid. A CNPJ has 14 digits.");
     }
 }
