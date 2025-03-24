@@ -84,18 +84,25 @@ public class ProductUnitTest1 {
     }
 
     [Fact(DisplayName = "Create product with empty image value.")]
-    public void CreateProduct_EmptyImageValue_DomainExceptionValidation() {
+    public void CreateProduct_EmptyImageValue_NoDomainExceptionValidation() {
         Action action = () => new Product(1, "Product Name", "Product Description", 10, 20, "");
         action.Should()
-            .Throw<DomainExceptionValidation>()
-            .WithMessage("Invalid image.");
+            .NotThrow<DomainExceptionValidation>();
     }
 
     [Fact(DisplayName = "Create product with null image value.")]
-    public void CreateProduct_NullImageValue_DomainExceptionValidation() {
+    public void CreateProduct_NullImageValue_NoDomainExceptionValidation() {
         Action action = () => new Product(1, "Product Name", "Product Description", 10, 20, null);
         action.Should()
+            .NotThrow<DomainExceptionValidation>();
+    }
+
+    [Fact(DisplayName = "Create product with long image value.")]
+    public void CreateProduct_LongImageValue_DomainExceptionValidation() {
+        Action action = () => new Product(1, "Product Name", "Product Description", 10, 20,
+            "image toooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo longggggggggggggggggggggggggggggggggggggggggggggggggggg");
+        action.Should()
             .Throw<DomainExceptionValidation>()
-            .WithMessage("Invalid image.");
+            .WithMessage("Invalid image. Image too long.");
     }
 }
