@@ -100,7 +100,7 @@ public sealed class Product : Entity {
     }
 
     private void ValidateImage(string image) {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(image),
-                "Invalid image.");
+        DomainExceptionValidation.When(image?.Length > 250,
+                "Invalid image. Image too long.");
     }
 }
