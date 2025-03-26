@@ -5,9 +5,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EntityConfiguration\" />
     <Folder Include="Identity\" />
     <Folder Include="Repositories\" />
+    <Folder Include="EntityConfiguration\" />
+    <Folder Include="Context\" />
   </ItemGroup>
 
   <ItemGroup>
