@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace CleanCore.Infra.Data.EntityConfiguration; 
 public class SupplierConfiguration : IEntityTypeConfiguration<Supplier> {
     public void Configure(EntityTypeBuilder<Supplier> builder) {
-        builder.HasKey(k => new { k.Id, k.CNPJ });
+        builder.HasKey(k => new { k.Id });
 
         builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
 
