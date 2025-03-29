@@ -4,6 +4,10 @@ using System.Collections.Generic;
 namespace CleanCore.Domain.Entities;
 
 public sealed class Supplier : Entity {
+    public Supplier() {
+        
+    }
+
     public Supplier(int id, string name, string cnpj) {
         ValidateId(id);
         ValidateName(name);
