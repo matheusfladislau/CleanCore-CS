@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanCore.Infra.IoC; 
 public static class DependencyInjection {
-    public static IServiceCollection AddInfastructure(this IServiceCollection services,
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services,
         IConfiguration configuration) {
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
