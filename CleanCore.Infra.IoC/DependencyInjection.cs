@@ -1,4 +1,7 @@
-﻿using CleanCore.Domain.Entities;
+﻿using CleanCore.Application.Interfaces;
+using CleanCore.Application.Mappings;
+using CleanCore.Application.Services;
+using CleanCore.Domain.Entities;
 using CleanCore.Infra.Data.Context;
 using CleanCore.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +19,14 @@ public static class DependencyInjection {
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ISupplierRepository, SupplierRepository>();
+
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<ISupplierService, SupplierService>();
+
+        services.AddAutoMapper(typeof(ProductProfile));
+        services.AddAutoMapper(typeof(CategoryProfile));
+        services.AddAutoMapper(typeof(SupplierProfile));
 
         return services;
     }
